@@ -175,8 +175,9 @@ class Background {
         // 5.hack 样式
         let arr = defBase64_1.defBase64; // 默认图片
         if (!config.useDefault) {
-            // 自定义图片
-            arr = config.customImages;
+            // 自定义图片 カスタム画像
+            // arr = config.customImages;
+            arr = this.getImageList();  //getImageList()を呼ぶように修正
         }
         // 自定义的样式内容
         const content = (0, getCss_1.getCss)(arr, config.style, config.styles, config.useFront, config.loop).replace(/\s*$/, ''); // 去除末尾空白
@@ -186,6 +187,31 @@ class Background {
         cssContent += content;
         this.saveCssContent(cssContent);
         vsHelp_1.vsHelp.showInfoRestart('Background has been changed! Please restart.');
+    }
+    getImageList() { 
+        let config = this.config;
+        let folders = config.customImageFolders;
+        let arr = [];
+        if (folders.length > 0) { //フォルダの設定があればランダムで一つ選択
+            let fdpath = folders[Math.floor(Math.random() * folders.length)];
+            let files = fs_1.default.readdirSync(path_1.default.resolve(fdpath));
+            files.filter((s) => {
+                return s.endsWith('.png') || s.endsWith('.jpg') || s.endsWith('.jpeg') || s.endsWith('.gif') || s.endsWith('.webp') || s.endsWith('.bmp');
+            }).forEach((file) => {
+                arr.push(path_1.default.join(fdpath, file).toString().replace(/\\/g, '/'));
+            });
+        } else { //なければ既存のcustomImagesから画像を取得
+            arr = config.customImages;
+        }
+        if (config.useRandom) { //ランダム使用モードなら並び替え
+            for (let i = arr.length - 1; i > 0; i--) {
+                let r = Math.floor(Math.random() * (i + 1));
+                let tmp = arr[i];
+                arr[i] = arr[r];
+                arr[r] = tmp;
+            }
+        }
+        return arr;
     }
     /**
      * 清理css中的添加项

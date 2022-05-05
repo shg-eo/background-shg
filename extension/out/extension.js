@@ -22,6 +22,11 @@ function activate(context) {
         vsHelp_1.vsHelp.showInfo('You can config your background in settings.json. Enjoy it!');
     });
     context.subscriptions.push(disposable);
+    const disposable2 = vscode_1.default.commands.registerCommand('extension.background.disable', function () {
+        vsHelp_1.vsHelp.showInfo('Uninstall;');
+        background_1.background.uninstall();
+    });
+    context.subscriptions.push(disposable2);
     context.subscriptions.push(background_1.background.watch());
 }
 exports.activate = activate;
