@@ -1,35 +1,34 @@
 # vscode-background
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/shalldie.background.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/shalldie.background.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
-[![Ratings](https://vsmarketplacebadge.apphb.com/rating/shalldie.background.svg?style=flat-square)](https://vsmarketplacebadge.apphb.com/rating/shalldie.background.svg)
-[![Build Status](https://img.shields.io/github/workflow/status/shalldie/vscode-background/ci?label=build&logo=github&style=flat-square)](https://github.com/shalldie/vscode-background/actions)
 
 ## Add a lovely background-image to your vscode.
 
-GitHub: [https://github.com/shalldie/vscode-background](https://github.com/shalldie/vscode-background)
+GitHub: 
 
-Vscode Market: [https://marketplace.visualstudio.com/items?itemName=shalldie.background](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
+Vscode Market:
 
 ## It looks like:
 
-![](https://user-images.githubusercontent.com/9987486/40583705-7105dda8-61c6-11e8-935a-3c5d475a1eb1.gif)
 
 ## Warns 警告：
 
 > **本插件是通过修改 vscode 的 css 文件的方式运行**
 > 所以会在初次安装，或者 vscode 升级的时候，出现以下提示，请选择 【不再提示】:
 >
-> **This extension works by editting the vscode's css file.**
+> **This extension works by editing the vscode's css file.**
 > So, a warning appears while the first time to install or vscode update. U can click the [never show again] to avoid it.
+>
+> **この拡張機能は、vscodeのCSSファイルを変更します**
+> 以下のような警告が表示されますが、これ以上表示しないを選択すれば、今後表示されることはありません。
 
 ![](https://user-images.githubusercontent.com/9987486/40583926-b1fb5398-61ca-11e8-8271-4ac650d158d3.png)
 
-This is the reason:
+This is the reason:  
+理由:
 
 ![](https://user-images.githubusercontent.com/9987486/40583775-91d4c8d6-61c7-11e8-9048-8c5538a32399.png)
 
-## Config 配置项
+## Config 配置项 設定
 
 | Name                      |      Type       | Description                                                                         |
 | :------------------------ | :-------------: | :---------------------------------------------------------------------------------- |
@@ -52,6 +51,8 @@ You should use protocol **https** instead of **http** for the image, **http** is
     Set the config  {"background.enabled": false}  in settings.json, then uninstall the plugin.
 
     需要在 settings.json 中设置 {"background.enabled": false} ，然后再删除插件。如果直接删除插件会有遗留，就需要重装vscode，或者把插件装回来再执行该步骤。
+
+    アンインストールする前に必ず {"background.enabled": false} の設定をしてください。
 
 ### Q&A 常见问题:
 
